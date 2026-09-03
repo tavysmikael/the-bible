@@ -4,3 +4,5 @@ allowBuilds:
   nx: true
   unrs-resolver: false
   "@nestjs/core": false
+  '@swc/core': true
+  sharp: true
