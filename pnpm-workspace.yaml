@@ -6,3 +6,9 @@ allowBuilds:
   "@nestjs/core": false
   '@swc/core': true
   sharp: true
+  esbuild: true
+  msgpackr-extract: true
+  workerd: true
+  '@prisma/engines': true
+  prisma: true
+  '@prisma/client': true

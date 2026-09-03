@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Language {
+  PT
+  EN
+  ES
+}
+
+enum Testament {
+  OLD
+  NEW
+}
+
+model Book {
+  id        Int       @id @default(autoincrement())
+  slug      String    @unique
+  testament Testament
+  order     Int
+  verses    Verse[]
+}
+
+model Verse {
+  id               Int            @id @default(autoincrement())
+  book             Book           @relation(fields: [bookId], references: [id])
+  bookId           Int
+  chapter          Int
+  number           Int
+  texts            VerseText[]
+  dailyAppearances DailyVerse[]
+
+  @@unique([bookId, chapter, number])
+}
+
+model VerseText {
+  id       Int      @id @default(autoincrement())
+  verse    Verse    @relation(fields: [verseId], references: [id])
+  verseId  Int
+  language Language
+  content  String   @db.Text
+
+  @@unique([verseId, language])
+}
+
+model DailyVerse {
+  id              Int              @id @default(autoincrement())
+  date            DateTime         @unique
+  verse           Verse            @relation(fields: [verseId], references: [id])
+  verseId         Int
+  interpretations Interpretation[]
+}
+
+model Interpretation {
+  id           Int        @id @default(autoincrement())
+  dailyVerse   DailyVerse @relation(fields: [dailyVerseId], references: [id])
+  dailyVerseId Int
+  language     Language
+  content      String     @db.Text
+  generatedAt  DateTime   @default(now())
+
+  @@unique([dailyVerseId, language])
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
