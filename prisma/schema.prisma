@@ -21,6 +21,7 @@ enum Testament {
 model Book {
   id        Int       @id @default(autoincrement())
   slug      String    @unique
+  name      String    @default("TEMP")
   testament Testament
   order     Int
   verses    Verse[]
