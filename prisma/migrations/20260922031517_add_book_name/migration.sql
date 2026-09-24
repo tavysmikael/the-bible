@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Book" ADD COLUMN     "name" TEXT NOT NULL DEFAULT 'TEMP';

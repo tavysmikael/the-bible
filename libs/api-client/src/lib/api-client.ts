@@ -28,3 +28,7 @@ export const versesApi = {
   getChapter: (bookSlug: string, chapter: number, lang = 'PT') =>
     request(`/verses/${bookSlug}/${chapter}?lang=${lang}`),
 };
+
+export const booksApi = {
+  getAll: () => request('/books'),
+};

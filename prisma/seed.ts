@@ -19,6 +19,7 @@ const NEW_TESTAMENT = [
 
 const BOOK_ORDER = [...OLD_TESTAMENT, ...NEW_TESTAMENT];
 
+
 function slugify(name: string): string {
     return name
         .normalize('NFD')
@@ -40,8 +41,17 @@ async function main() {
 
         const book = await prisma.book.upsert({
             where: { slug },
-            update: {},
-            create: { slug, testament, order: i + 1 },
+            update: {
+                name: bookData.name,
+                testament,
+                order: i + 1,
+            },
+            create: {
+                slug,
+                name: bookData.name,
+                testament,
+                order: i + 1,
+            },
         });
 
         for (const chapter of bookData.chapters) {

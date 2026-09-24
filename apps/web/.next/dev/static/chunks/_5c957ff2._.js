@@ -5,6 +5,8 @@
 __turbopack_context__.s([
     "authApi",
     ()=>authApi,
+    "booksApi",
+    ()=>booksApi,
     "versesApi",
     ()=>versesApi
 ]);
@@ -44,6 +46,9 @@ const authApi = {
 };
 const versesApi = {
     getChapter: (bookSlug, chapter, lang = 'PT')=>request(`/verses/${bookSlug}/${chapter}?lang=${lang}`)
+};
+const booksApi = {
+    getAll: ()=>request('/books')
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
