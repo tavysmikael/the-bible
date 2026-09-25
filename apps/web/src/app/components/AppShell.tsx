@@ -1,25 +1,37 @@
 // apps/web/src/app/components/AppShell.tsx
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, Search, User } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { booksApi } from '@the-bible/api-client';
-import { parseReference } from '@the-bible/api-client';
+import Link from 'next/link';
+import { booksApi, parseReference } from '@the-bible/api-client';
 import { Sidebar } from './Sidebar';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const [query, setQuery] = useState('');
+    const [logado, setLogado] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        setLogado(!!localStorage.getItem('token'));
+    }, []);
 
     async function handleSearch(e: React.FormEvent) {
         e.preventDefault();
         const ref = parseReference(query);
         if (!ref) return;
-
         const book = await booksApi.search(ref.bookName);
         if (book) router.push(`/leitura/${book.slug}/${ref.chapter}`);
+    }
+
+    function handleLogout() {
+        localStorage.removeItem('token');
+        setLogado(false);
+        setMenuOpen(false);
+        router.push('/');
     }
 
     return (
@@ -31,20 +43,27 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
                 <form onSubmit={handleSearch} className="search-form">
                     <Search size={18} />
-                    <input
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="João, 3, 16"
-                    />
+                    <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="João, 3, 16" />
                 </form>
 
-                <button onClick={() => router.push('/perfil')} aria-label="Perfil">
-                    <User size={22} />
-                </button>
+                {logado ? (
+                    <div className="profile-menu">
+                        <button onClick={() => setMenuOpen((v) => !v)} aria-label="Perfil">
+                            <User size={22} />
+                        </button>
+                        {menuOpen && (
+                            <div className="profile-dropdown">
+                                <Link href="/perfil" onClick={() => setMenuOpen(false)}>Perfil</Link>
+                                <button onClick={handleLogout}>Sair</button>
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <Link href="/login" className="btn-secondary">Entrar</Link>
+                )}
             </header>
 
             <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
             <main>{children}</main>
         </div>
     );

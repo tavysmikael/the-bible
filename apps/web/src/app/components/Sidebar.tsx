@@ -10,7 +10,7 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
         <>
             <div className="sidebar-overlay" onClick={onClose} />
             <nav className="sidebar">
-                <Link href="/home" onClick={onClose}>Início</Link>
+                <Link href="/" onClick={onClose}>Início</Link>
                 <Link href="/cafe-com-deus" onClick={onClose}>Café com Deus</Link>
                 <Link href="/estude-com-cici" onClick={onClose}>Estude com Cici</Link>
                 <Link href="/configuracoes" onClick={onClose}>Configurações</Link>

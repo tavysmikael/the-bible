@@ -50,4 +50,62 @@
   inset: 0;
 }
 
+.landing {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  font-family: Georgia, serif;
+}
+
+.hero h1 {
+  margin-bottom: .5rem;
+  font-size: 2.5rem;
+}
+
+.hero-actions {
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.btn-primary, .btn-secondary {
+  border-radius: 6px;
+  padding: .7rem 1.5rem;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.btn-primary {
+  color: #fff;
+  background: #333;
+}
+
+.btn-secondary {
+  color: #333;
+  border: 1px solid #333;
+}
+
+.features {
+  text-align: left;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+  display: grid;
+}
+
+.feature-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+
+.landing-footer {
+  color: #666;
+  margin-top: 3rem;
+  font-family: sans-serif;
+  font-size: .9rem;
+}
+
 /*# sourceMappingURL=apps_web_src_app_global_3e6e1339.css.map*/
