@@ -1,46 +1,57 @@
+// apps/web/src/app/page.tsx
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { authApi } from '@the-bible/api-client';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { BookOpen, Coffee, MessageCircle, Palette, HeartHandshake } from 'lucide-react';
 
-export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [erro, setErro] = useState('');
-  const router = useRouter();
+const FEATURES = [
+    { icon: BookOpen, title: 'Leitura contínua', text: 'Role e continue lendo sem interrupções, como um livro de verdade.' },
+    { icon: Coffee, title: 'Café com Deus', text: 'Um versículo por dia com interpretação da IA para comparar com a sua.' },
+    { icon: MessageCircle, title: 'Estude com a Cici', text: 'Tire dúvidas e aprofunde seus estudos conversando com nossa IA.' },
+    { icon: Palette, title: 'Temas personalizados', text: 'Papel, modo escuro ou pergaminho antigo — do seu jeito.' },
+];
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setErro('');
-    try {
-      const { accessToken } = await authApi.login(email, password);
-      localStorage.setItem('token', accessToken);
-      router.push('/home');
-    } catch (err) {
-      setErro('Email ou senha inválidos');
-    }
-  }
+export default function LandingPage() {
+    const [logado, setLogado] = useState(false);
 
-  return (
-    <main>
-      <h1>Bíblia de Bolso</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Entrar</button>
-      </form>
-      {erro && <p>{erro}</p>}
-    </main>
-  );
+    useEffect(() => {
+        setLogado(!!localStorage.getItem('token'));
+    }, []);
+
+    return (
+        <main className="landing">
+            <section className="hero">
+                <h1>Bíblia de Bolso</h1>
+                <p>Sua leitura diária, com café e interpretação da IA ao lado.</p>
+                <div className="hero-actions">
+                    {logado ? (
+                        <Link href="/home" className="btn-primary">Ir para o app</Link>
+                    ) : (
+                        <>
+                            <Link href="/register" className="btn-primary">Criar conta</Link>
+                            <Link href="/login" className="btn-secondary">Entrar</Link>
+                        </>
+                    )}
+                </div>
+            </section>
+
+            <section className="features">
+                {FEATURES.map((f) => (
+                    <div key={f.title} className="feature-card">
+                        <f.icon size={28} />
+                        <h3>{f.title}</h3>
+                        <p>{f.text}</p>
+                    </div>
+                ))}
+            </section>
+
+            <footer className="landing-footer">
+                <p>Gratuito, sem anúncios, sempre.</p>
+                <Link href="/doacoes">
+                    <HeartHandshake size={16} /> Apoiar o projeto
+                </Link>
+            </footer>
+        </main>
+    );
 }

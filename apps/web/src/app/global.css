@@ -49,3 +49,63 @@
   background: rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
+
+/* global.css — adicionar */
+.landing {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+.btn-primary {
+  background: #333;
+  color: #fff;
+}
+
+.btn-secondary {
+  border: 1px solid #333;
+  color: #333;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+  text-align: left;
+}
+
+.feature-card {
+  padding: 1.2rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.landing-footer {
+  margin-top: 3rem;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+}
