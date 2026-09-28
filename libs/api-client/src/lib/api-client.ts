@@ -1,7 +1,11 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/api';
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/api';
 
 async function request(path: string, options: RequestInit = {}) {
-  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+  const token =
+    typeof window !== 'undefined'
+      ? localStorage.getItem('token')
+      : null;
 
   const res = await fetch(`${API_URL}${path}`, {
     ...options,
@@ -12,15 +16,28 @@ async function request(path: string, options: RequestInit = {}) {
     },
   });
 
-  if (!res.ok) throw new Error(`Erro ${res.status}: ${res.statusText}`);
-  return res.json();
+  if (!res.ok) {
+    throw new Error(`Erro ${res.status}: ${res.statusText}`);
+  }
+
+  const text = await res.text();
+
+  return text ? JSON.parse(text) : null;
 }
 
 export const authApi = {
   login: (email: string, password: string) =>
-    request('/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) }),
+    request('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+    }),
+
   register: (email: string, password: string) =>
-    request('/auth/register', { method: 'POST', body: JSON.stringify({ email, password }) }),
+    request('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+    }),
+
   me: () => request('/auth/me'),
 };
 
@@ -31,4 +48,7 @@ export const versesApi = {
 
 export const booksApi = {
   getAll: () => request('/books'),
+
+  search: (q: string) =>
+    request(`/books/search?q=${encodeURIComponent(q)}`),
 };

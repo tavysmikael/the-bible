@@ -17,15 +17,22 @@ export class BooksService {
         });
     }
 
-    async findBySlugOrName(query: string) {
-        const normalized = query.toLowerCase();
+    findBySlugOrName(query: string) {
+        const slug = query
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-');
 
         return this.prisma.book.findFirst({
             where: {
-                OR: [
-                    { slug: { contains: normalized } },
-                    { name: { contains: normalized, mode: 'insensitive' } },
-                ],
+                slug: {
+                    equals: slug,
+                },
+            },
+            orderBy: {
+                order: 'asc',
             },
         });
     }
