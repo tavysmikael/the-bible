@@ -1,9 +1,1 @@
-[00:00:00.511] Server  LOG     ✓ Ready in 362ms
-[00:00:02.371] Browser ERROR   unhandledRejection: TypeError: Load failed
-[00:05:07.155] Server  LOG     ✓ Compiled in 61ms
-[00:09:22.471] Server  LOG     ✓ Compiled in 16ms
-[00:13:32.447] Server  LOG     ✓ Compiled in 92ms
-[00:15:41.571] Server  LOG     ✓ Compiled in 21ms
-[00:16:16.091] Browser ERROR   unhandledRejection: TypeError: Load failed
-[00:18:28.506] Server  LOG     ✓ Compiled in 8ms
-[00:18:33.228] Browser ERROR   unhandledRejection: TypeError: Load failed
+[00:00:00.501] Server  LOG     ✓ Ready in 353ms

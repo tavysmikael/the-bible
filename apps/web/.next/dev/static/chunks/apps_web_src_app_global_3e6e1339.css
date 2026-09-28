@@ -8,6 +8,9 @@
   --border: #e2dccd;
   --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-reading: Georgia, "Times New Roman", serif;
+  --footer-bg: #2b2620;
+  --footer-text: #faf8f3;
+  --footer-muted: #a89f92;
 }
 
 * {
@@ -460,6 +463,123 @@ ul {
 .erro {
   color: #b3261e;
   margin: 0;
+}
+
+.home-content {
+  min-height: 70vh;
+}
+
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: left;
+  margin-top: 64px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-features {
+  border-bottom: 1px solid #ffffff1f;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 32px;
+  display: grid;
+}
+
+.footer-feature h3 {
+  margin: 12px 0 6px;
+  font-size: 1rem;
+}
+
+.footer-feature p {
+  color: var(--footer-muted);
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.footer-main {
+  grid-template-columns: 1.2fr 2fr;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: grid;
+}
+
+.footer-left h2 {
+  font-family: var(--font-reading);
+  letter-spacing: .02em;
+  margin: 0 0 16px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.footer-left p {
+  color: var(--footer-muted);
+  margin: 0;
+}
+
+.footer-cols {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  display: grid;
+}
+
+.footer-col h4 {
+  letter-spacing: .1em;
+  color: var(--footer-muted);
+  margin: 0 0 14px;
+  font-size: .75rem;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+  font-size: .95rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ffffff1f;
+}
+
+.footer-bottom-inner {
+  max-width: 1100px;
+  color: var(--footer-muted);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  font-size: .82rem;
+  display: flex;
+}
+
+.footer-bottom-links {
+  align-items: center;
+  gap: 20px;
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /*# sourceMappingURL=apps_web_src_app_global_3e6e1339.css.map*/
