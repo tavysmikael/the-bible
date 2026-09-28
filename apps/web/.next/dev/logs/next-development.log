@@ -1,1 +1,176 @@
-[00:00:00.481] Server  LOG     ✓ Ready in 348ms
+[00:00:00.444] Server  LOG     ✓ Ready in 318ms
+[00:00:04.862] Server  ERROR   ⨯ ./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-client] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+
+
+./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-ssr] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+
+[00:00:05.043] Browser ERROR   uncaughtError: Error: ./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-client] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+
+[00:00:05.204] Browser ERROR   ./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-client] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]
+[00:00:05.204] Browser ERROR   ./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-ssr] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]
+[00:00:05.204] Browser ERROR   ./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-client] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]
+[00:00:05.204] Browser ERROR   ./apps/web/src/app/components/AppShell.tsx:8:1
+Export parseReference doesn't exist in target module
+   6 | import { useRouter } from 'next/navigation';
+   7 | import Link from 'next/link';
+>  8 | import { booksApi, parseReference } from '@the-bible/api-client';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { Sidebar } from './Sidebar';
+  10 |
+  11 | export function AppShell({ children }: { children: React.ReactNode }) {
+
+The export parseReference was not found in module [project]/libs/api-client/src/index.ts [app-ssr] (ecmascript).
+Did you mean to import versesApi?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Client Component Browser]
+    ./apps/web/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/app/components/AppShell.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Client Component SSR]
+    ./apps/web/src/app/page.tsx [Server Component]

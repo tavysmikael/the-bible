@@ -108,4 +108,43 @@
   font-size: .9rem;
 }
 
+.testamentos {
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  display: grid;
+}
+
+.cafe-btn {
+  align-items: center;
+  gap: .5rem;
+  margin: 1rem 0;
+  display: inline-flex;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-dropdown {
+  z-index: 30;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  flex-direction: column;
+  min-width: 140px;
+  display: flex;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.profile-dropdown a, .profile-dropdown button {
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: .6rem 1rem;
+}
+
 /*# sourceMappingURL=apps_web_src_app_global_3e6e1339.css.map*/
