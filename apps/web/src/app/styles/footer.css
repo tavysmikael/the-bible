@@ -1,6 +1,5 @@
 /* styles/footer.css */
 .site-footer {
-    margin-top: 64px;
     background: var(--footer-bg);
     color: var(--footer-text);
     text-align: left;

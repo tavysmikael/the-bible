@@ -35,7 +35,7 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             <nav className={`sidebar ${open ? 'open' : ''}`}>
                 <div className="sidebar-header">
                     <button className="icon-btn" onClick={onClose} aria-label="Fechar menu"><Menu size={22} /></button>
-                    <span>Bíblia de Bolso</span>
+                    <span>A Bíblia</span>
                 </div>
 
                 {NAV.map(({ href, label, icon: Icon }) => (

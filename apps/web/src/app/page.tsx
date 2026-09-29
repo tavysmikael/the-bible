@@ -29,7 +29,7 @@ export default function HomePage() {
     return (
         <>
             <div className="page-column home-content">
-                <h1>Bíblia de Bolso</h1>
+                <h1>A Bíblia</h1>
                 <p className="subtitle">Sua leitura diária, com café e interpretação da IA ao lado.</p>
 
                 <div className="action-grid">
