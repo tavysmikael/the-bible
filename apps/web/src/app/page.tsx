@@ -30,7 +30,7 @@ export default function HomePage() {
         <>
             <div className="page-column home-content">
                 <h1>A Bíblia</h1>
-                <p className="subtitle">Sua leitura diária, com café e interpretação da IA ao lado.</p>
+                <p className="subtitle">Seu contato com Deus diário, com café e interpretação da IA para te ajudar.</p>
 
                 <div className="action-grid">
                     <button className="action-btn" aria-expanded={aberto === 'OLD'} onClick={() => toggle('OLD')}>
