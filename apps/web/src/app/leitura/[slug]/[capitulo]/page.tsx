@@ -40,20 +40,21 @@ export default function LeituraPage() {
     }, [blocks, loadNext]);
 
     return (
-        <div className= "leitura-container" >
-        {
-            blocks.map((block) => (
-                <section key= { block.chapter } className = "capitulo" >
-                <h2>Capítulo { block.chapter } </h2>
-          {
-                    block.verses.map((v) => (
-                        <p key= { v.id } > <sup>{ v.number } < /sup>{v.texts[0]?.content}</p >
-          ))
-        }
-        </section>
-      ))
-}
-<div ref={ sentinelRef } style = {{ height: 1 }} />
-    </div>
-  );
+        <div className="leitura-container">
+            {blocks.map((block) => (
+                <section key={block.chapter} className="capitulo">
+                    <h2>Capítulo {block.chapter}</h2>
+
+                    {block.verses.map((v) => (
+                        <p key={v.id}>
+                            <sup>{v.number}</sup>
+                            {v.texts[0]?.content}
+                        </p>
+                    ))}
+                </section>
+            ))}
+
+            <div ref={sentinelRef} style={{ height: 1 }} />
+        </div>
+    );
 }

@@ -1,0 +1,47 @@
+/* modal de login */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    width: min(360px, 92vw);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.modal-content h2 {
+    margin: 0 0 4px;
+    font-family: var(--font-reading);
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content input {
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+}
+
+.modal-content .btn-primary {
+    height: 42px;
+    border-radius: 10px;
+    background: var(--text);
+    color: var(--bg);
+    font-weight: 500;
+}

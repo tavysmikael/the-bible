@@ -1,5 +1,12 @@
 // apps/web/src/app/layout.tsx
-import './global.css';
+import './styles/base.css';
+import './styles/topbar.css';
+import './styles/sidebar.css';
+import './styles/modal.css';
+import './styles/reading.css';
+import './styles/home.css';
+import './styles/footer.css';
+
 import { AppShell } from './components/AppShell';
 
 export const metadata = {

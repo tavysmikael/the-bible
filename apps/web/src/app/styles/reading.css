@@ -1,0 +1,24 @@
+/* leitura */
+.leitura-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 20px 96px;
+    font-family: var(--font-reading);
+    font-size: 1.15rem;
+    line-height: 1.85;
+}
+
+.capitulo h2 {
+    margin: 40px 0 16px;
+    font-size: 1.3rem;
+}
+
+.leitura-container p {
+    margin: 0 0 12px;
+}
+
+.leitura-container sup {
+    margin-right: 4px;
+    font-size: 0.65em;
+    color: var(--muted);
+}
