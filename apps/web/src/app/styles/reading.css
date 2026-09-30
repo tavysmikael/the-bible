@@ -22,3 +22,30 @@
     font-size: 0.65em;
     color: var(--muted);
 }
+
+.leitura-container {
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    top: 32px;
+    left: -8px;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--muted);
+    opacity: 0.6;
+}
+
+.back-btn:hover {
+    opacity: 1;
+    background: var(--hover);
+}
+
+@media (max-width: 760px) {
+    .back-btn {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 12px;
+    }
+}
