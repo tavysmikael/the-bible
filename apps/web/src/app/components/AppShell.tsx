@@ -107,7 +107,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 )}
             </header>
 
-            <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+            <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} logado ={logado} />
 
             <main>{children}</main>
 

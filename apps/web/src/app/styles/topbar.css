@@ -1,16 +1,9 @@
 /* topo */
-.topbar {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    height: 56px;
-    padding: 0 12px;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-}
+
+.topbar { position: sticky; top: 0; z-index: 20; display: grid; grid-template-columns: 1fr minmax(0, 480px) 1fr; align-items: center; gap: 12px; height: 56px; padding: 0 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+.topbar > .icon-btn { justify-self: start; }
+.topbar > .search-form { justify-self: center; width: 100%; margin: 0; }
+.topbar > .profile-menu, .topbar > .btn-outline { justify-self: end; }
 
 .icon-btn {
     display: grid;

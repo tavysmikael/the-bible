@@ -5,6 +5,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { versesApi } from '@the-bible/api-client';
 
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+
 interface Verse { id: number; number: number; texts: { content: string }[]; }
 interface ChapterBlock { chapter: number; verses: Verse[]; }
 
@@ -41,6 +44,9 @@ export default function LeituraPage() {
 
     return (
         <div className="leitura-container">
+            <Link href="/" className="back-btn" aria-label="Voltar">
+                <ArrowLeft size={20} />
+            </Link>
             {blocks.map((block) => (
                 <section key={block.chapter} className="capitulo">
                     <h2>Capítulo {block.chapter}</h2>
