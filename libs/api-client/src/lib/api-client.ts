@@ -1,11 +1,9 @@
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/api';
+  process.env["NEXT_PUBLIC_API_URL"] ?? 'http://localhost:3000/api';
 
-async function request(path: string, options: RequestInit = {}) {
-  const token =
-    typeof window !== 'undefined'
-      ? localStorage.getItem('token')
-      : null;
+// libs/api-client/src/lib/api-client.ts — substituir a função request inteira
+async function request(path: string, options: RequestInit = {}, retry = true): Promise<any> {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
 
   const res = await fetch(`${API_URL}${path}`, {
     ...options,
@@ -16,13 +14,36 @@ async function request(path: string, options: RequestInit = {}) {
     },
   });
 
-  if (!res.ok) {
-    throw new Error(`Erro ${res.status}: ${res.statusText}`);
+  if (res.status === 401 && retry && typeof window !== 'undefined') {
+    const refreshed = await tryRefresh();
+    if (refreshed) return request(path, options, false); // tenta de novo, uma vez só
   }
 
+  if (!res.ok) throw new Error(`Erro ${res.status}: ${res.statusText}`);
   const text = await res.text();
-
   return text ? JSON.parse(text) : null;
+}
+
+async function tryRefresh(): Promise<boolean> {
+  const refreshToken = localStorage.getItem('refreshToken');
+  if (!refreshToken) return false;
+
+  const res = await fetch(`${API_URL}/auth/refresh`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ refreshToken }),
+  });
+
+  if (!res.ok) {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    return false;
+  }
+
+  const tokens = await res.json();
+  localStorage.setItem('accessToken', tokens.accessToken);
+  localStorage.setItem('refreshToken', tokens.refreshToken);
+  return true;
 }
 
 export const authApi = {
