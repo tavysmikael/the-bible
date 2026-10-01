@@ -19,6 +19,7 @@ import {
 } from '@the-bible/api-client';
 import { Sidebar } from './Sidebar';
 import { LoginModal } from './LoginModal';
+import { RegisterModal } from './RegisterModal';
 
 export function AppShell({
     children,
@@ -27,8 +28,7 @@ export function AppShell({
 }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [loginOpen, setLoginOpen] = useState(false);
-    const [logado, setLogado] = useState(false);
+    const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);    const [logado, setLogado] = useState(false);
     const [email, setEmail] = useState('');
     const [query, setQuery] = useState('');
 
@@ -69,7 +69,7 @@ export function AppShell({
             if (e.key === 'Escape') {
                 setSidebarOpen(false);
                 setMenuOpen(false);
-                setLoginOpen(false);
+                setAuthModal(null);
             }
         }
 
@@ -220,7 +220,7 @@ export function AppShell({
                 ) : (
                     <button
                         className="btn-outline"
-                        onClick={() => setLoginOpen(true)}
+                        onClick={() => setAuthModal('login')}
                     >
                         <User size={18} />
                         Entrar
@@ -232,18 +232,27 @@ export function AppShell({
                 open={sidebarOpen}
                 onClose={() => setSidebarOpen(false)}
                 logado={logado}
+                onOpenRegister={() => {
+                    setSidebarOpen(false);
+                    setAuthModal('register');
+                }}
             />
 
             <main>{children}</main>
 
-            {loginOpen && (
-                <LoginModal
-                    onClose={() => setLoginOpen(false)}
-                    onSuccess={() => {
-                        setLoginOpen(false);
-                        loadUser();
-                    }}
-                />
+            {authModal === 'login' && (
+            <LoginModal
+                onClose={() => setAuthModal(null)}
+                onSuccess={() => { setAuthModal(null); loadUser(); }}
+                onSwitchToRegister={() => setAuthModal('register')}
+            />
+            )}
+            {authModal === 'register' && (
+            <RegisterModal
+                onClose={() => setAuthModal(null)}
+                onSuccess={() => { setAuthModal(null); loadUser(); }}
+                onSwitchToLogin={() => setAuthModal('login')}
+            />
             )}
         </>
     );
