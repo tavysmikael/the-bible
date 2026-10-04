@@ -13,3 +13,4 @@ allowBuilds:
   prisma: true
   '@prisma/client': true
   bcrypt: true
+  '@scarf/scarf': true

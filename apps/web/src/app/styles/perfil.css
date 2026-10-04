@@ -1,2 +1,183 @@
-.perfil-page { text-align: center; }
-.perfil-page .avatar.lg { margin: 24px auto 12px; }
+.perfil-page {
+  padding-top: 32px;
+  padding-bottom: 64px;
+}
+
+.perfil-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.perfil-back:hover {
+  color: var(--text-primary);
+}
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.perfil-avatar {
+  flex-shrink: 0;
+}
+
+.perfil-heading h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+
+.perfil-email {
+  margin: 0 0 10px;
+  color: var(--text-secondary);
+}
+
+.perfil-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.perfil-role.admin {
+  color: var(--accent);
+}
+
+.perfil-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.perfil-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.perfil-card-header h2 {
+  margin: 0 0 3px;
+  font-size: 17px;
+}
+
+.perfil-card-header p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.perfil-info-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.perfil-info:last-child {
+  border-bottom: 0;
+}
+
+.perfil-info-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.perfil-info-value {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.perfil-since {
+  margin: 20px 0 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: center;
+}
+
+.perfil-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 60px;
+}
+
+.skeleton {
+  background: var(--background-secondary);
+  animation: perfil-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-title {
+  width: 180px;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.skeleton-text {
+  width: 240px;
+  height: 16px;
+  border-radius: 6px;
+}
+
+@keyframes perfil-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .perfil-page {
+    padding-top: 20px;
+  }
+
+  .perfil-header {
+    align-items: flex-start;
+  }
+
+  .perfil-heading h1 {
+    font-size: 24px;
+  }
+
+  .perfil-info {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .perfil-info-value {
+    text-align: left;
+  }
+}

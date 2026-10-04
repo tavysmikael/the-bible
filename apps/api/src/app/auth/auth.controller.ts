@@ -1,19 +1,30 @@
-//import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Request,
+} from '@nestjs/common';
+
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+
 import { AuthService } from './auth.service';
-
-import { Controller, Get, Post, Body, UseGuards, Request } from '@nestjs/common';
-import { JwtAuthGuard } from './jwt-auth.guard';
-
 import { Public } from './public.decorator';
+
 import { RefreshDto } from './dto/refresh.dto';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
+
 import { PrismaService } from '../prisma/prisma.service';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService, private readonly prisma: PrismaService) { }
-  
+  constructor(
+    private readonly authService: AuthService,
+    private readonly prisma: PrismaService,
+  ) {}
+
   @Public()
   @Post('register')
   register(@Body() dto: RegisterDto) {
@@ -32,22 +43,24 @@ export class AuthController {
     return this.authService.refresh(dto.refreshToken);
   }
 
+  @ApiBearerAuth('access-token')
   @Post('logout')
   logout(@Request() req) {
     return this.authService.logout(req.user.userId);
   }
 
+  @ApiBearerAuth('access-token')
   @Get('me')
   async getProfile(@Request() req) {
-      const user = await this.prisma.user.findUnique({
-          where: { id: req.user.userId },
-          select: {
-              id: true,
-              email: true,
-              createdAt: true,
-          },
-      });
+    const user = await this.prisma.user.findUnique({
+      where: { id: req.user.userId },
+      select: {
+        id: true,
+        email: true,
+        createdAt: true,
+      },
+    });
 
-      return user;
+    return user;
   }
 }
