@@ -68,6 +68,11 @@ model Interpretation {
   @@unique([dailyVerseId, language])
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
 model User {
   id           Int      @id @default(autoincrement())
   email        String   @unique
@@ -75,6 +80,7 @@ model User {
   createdAt    DateTime @default(now())
   conversations Conversation[]
   refreshTokenHash String?
+  role Role @default(USER)
 }
 
 enum MessageRole {

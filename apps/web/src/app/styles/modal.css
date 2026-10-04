@@ -45,3 +45,5 @@
     color: var(--bg);
     font-weight: 500;
 }
+
+.link-btn { text-decoration: underline; }

@@ -8,10 +8,11 @@ import { Public } from './public.decorator';
 import { RefreshDto } from './dto/refresh.dto';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService, private readonly prisma: PrismaService) { }
   
   @Public()
   @Post('register')
@@ -37,7 +38,16 @@ export class AuthController {
   }
 
   @Get('me')
-  getProfile(@Request() req) {
-    return req.user;
+  async getProfile(@Request() req) {
+      const user = await this.prisma.user.findUnique({
+          where: { id: req.user.userId },
+          select: {
+              id: true,
+              email: true,
+              createdAt: true,
+          },
+      });
+
+      return user;
   }
 }

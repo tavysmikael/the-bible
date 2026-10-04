@@ -24,7 +24,8 @@ const FONTS = [
     { id: 'crimson', label: 'Crimson' },
 ];
 
-export function Sidebar({ open, onClose, logado }: { open: boolean; onClose: () => void; logado: boolean }) {
+export function Sidebar({ open, onClose, logado, onOpenRegister }: { 
+    open: boolean; onClose: () => void; logado: boolean; onOpenRegister: () => void }) {
     const pathname = usePathname();
     const [theme, setTheme] = useState('light'); // só visual por enquanto
     const [font, setFont] = useState('garamond');
@@ -61,14 +62,10 @@ export function Sidebar({ open, onClose, logado }: { open: boolean; onClose: () 
                 ))}
 
                 {!logado && (
-                    <Link
-                        href="/register"
-                        onClick={onClose}
-                        className="menu-item"
-                    >
+                    <button className="menu-item" onClick={onOpenRegister}>
                         <UserPlus size={20} /> Criar conta
-                    </Link>
-                )}
+                    </button>
+                    )}
 
                 <div className="divider" />
 

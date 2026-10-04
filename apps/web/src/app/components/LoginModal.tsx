@@ -7,9 +7,11 @@ import { authApi } from '@the-bible/api-client';
 export function LoginModal({
     onClose,
     onSuccess,
+    onSwitchToRegister,
 }: {
     onClose: () => void;
     onSuccess: () => void;
+    onSwitchToRegister: () => void;
 }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -61,12 +63,7 @@ export function LoginModal({
 
                 {erro && <p className="erro">{erro}</p>}
 
-                <p>
-                    Não tem conta?{' '}
-                    <Link href="/register" onClick={onClose}>
-                        Criar conta
-                    </Link>
-                </p>
+                  <p>Não tem conta? <button className="link-btn" onClick={onSwitchToRegister}>Criar conta</button></p>
             </div>
         </div>
     );

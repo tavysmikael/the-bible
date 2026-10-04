@@ -6,6 +6,7 @@ import './styles/modal.css';
 import './styles/reading.css';
 import './styles/home.css';
 import './styles/footer.css';
+import './styles/perfil.css';
 
 import { AppShell } from './components/AppShell';
 
